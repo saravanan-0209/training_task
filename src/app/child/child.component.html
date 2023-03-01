@@ -1,0 +1,33 @@
+<app-view-child></app-view-child>
+<button (click)="toggleChild()">toggle</button>
+
+<h1>USER DETAILS</h1>
+<p>User Name : {{name}}</p>
+Today's Date is:- {{ date | date}}<br>
+Price:- {{ price | currency:"INR"}}<br>
+<p> birthday is {{ birthday | date:"MM/dd/yy" }} </p>
+
+<mat-form-field appearance="fill">
+  <mat-label>Pipe</mat-label>
+  <input matInput [(ngModel)]="search">
+</mat-form-field> <br>
+<!-- <input type = "text" [(ngModel)] = "search"> <br> -->
+Names:- <div *ngFor="let list of list | listfilter : search">{{ list }}</div>
+
+<h1 appColor>OBSERVABLE TASK</h1>
+
+Current Time : {{currentTime | date: 'mediumTime'}} <br>
+
+<button mat-raised-button color="warn" (click)="showColor()">change color</button> &nbsp;
+<button mat-raised-button color="primary" (click)="removeColor()">another color</button>
+
+<p [ngClass]="setClasses">
+  Start editing to see some magic happen :)
+</p><br>
+
+<p>{{currentMessage}}</p>
+<mat-form-field appearance="fill">
+  <mat-label>send message</mat-label>
+  <input matInput #message>
+</mat-form-field>&nbsp;
+<button mat-raised-button color="primary" (click)="sendMessage(message)">send</button>

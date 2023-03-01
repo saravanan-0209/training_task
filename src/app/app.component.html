@@ -1,0 +1,12 @@
+<h1>Parent</h1>
+  
+<mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput [(ngModel)]="current">
+  </mat-form-field> &nbsp;
+  <button mat-raised-button color="primary" [routerLink]="['/pipe']" >Table</button>
+
+<app-child-component [result]="current" (somethingChanged)="handleEvent($event)"></app-child-component>
+<router-outlet></router-outlet>  
+<app-child></app-child>
+<app-prom></app-prom>
